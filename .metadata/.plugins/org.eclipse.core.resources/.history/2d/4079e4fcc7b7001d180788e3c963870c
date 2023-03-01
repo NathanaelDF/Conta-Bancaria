@@ -1,0 +1,29 @@
+package Vizualizacao;
+
+import EntradaSaida.Conta;
+
+public class InfoConta {
+	
+	Conta conta = new Conta();
+
+	public void exibirExtradoDeSaques(int saldo) {
+		
+	}
+	public void exibirExtratoDeDepositos() {
+		
+	}
+	public void exibirExtratoCompleto() {
+		
+	}
+	public void exibirDadosDaConta() {
+		
+	}
+	public void exibirSaldoCompleto() {
+		
+	}
+	public void solicitarInformacoesSaque() {
+		
+	}
+
+
+}

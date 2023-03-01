@@ -1,0 +1,25 @@
+package Vizualizacao;
+
+public class InfoConta {
+
+	public void exibirExtradoDeSaques() {
+		
+	}
+	public void exibirExtratoDeDepositos() {
+		
+	}
+	public void exibirExtratoCompleto() {
+		
+	}
+	public void exibirDadosDaConta() {
+		
+	}
+	public void exibirSaldoCompleto() {
+		
+	}
+	public void solicitarInformacoesSaque() {
+		
+	}
+
+
+}

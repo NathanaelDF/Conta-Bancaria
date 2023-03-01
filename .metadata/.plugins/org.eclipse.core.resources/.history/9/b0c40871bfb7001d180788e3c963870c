@@ -1,0 +1,24 @@
+package Controladora;
+
+import EntradaSaida.*;
+import Vizualizacao.*;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
+public class controladora {
+
+	public void exibeMenu() {
+		Conta conta = new Conta();
+		int opcao = 0;
+
+		do {
+opcao = Conta.
+			
+			
+			
+			
+		} while (opcao != 6);
+
+	}
+
+}

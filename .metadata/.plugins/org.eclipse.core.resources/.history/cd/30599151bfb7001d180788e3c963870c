@@ -1,0 +1,74 @@
+package EntradaSaida;
+
+public class Conta {
+	private String[] titularDaConta;
+
+	private int saldoContaPop;
+
+	private int sladoContaCore;
+
+	private int saldo;
+
+//private ArrayList<Movimentacao>listaDeMovimentacao<movimentacao>;
+
+	public String[] getTitularDaConta() {
+		return titularDaConta;
+	}
+
+	public void setTitularDaConta() {
+		this.titularDaConta = titularDaConta;
+	}
+
+	public int getSaldoContaPop() {
+		return saldoContaPop;
+	}
+
+	public void setSaldoContaPop() {
+		this.saldoContaPop = saldoContaPop;
+	}
+
+	public int getSaldoContaCore() {
+		return sladoContaCore;
+	}
+
+	public void setSaldoContaCore() {
+		this.sladoContaCore = sladoContaCore;
+	}
+
+	public int getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo() {
+		this.saldo = saldo;
+	}
+
+	public int depositar() {
+
+	}
+
+	public int sacar() {
+
+	}
+
+	public int gerarSaldo() {
+
+	}
+
+	public String gerarDadosDaConta() {
+
+	}
+
+	public String gerarExtrato() {
+
+	}
+
+	public String gerarExtratoDepositos() {
+
+	}
+
+	public String gerarExtratoSaques() {
+
+	}
+
+}
