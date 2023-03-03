@@ -12,27 +12,27 @@ public class controladora {
 		InfoConta infoConta = new InfoConta();
 		int opcao = 0;
 		int opcaoInicial = 0;
+		int qualConta = 0;
 		do {
 			opcaoInicial = conta.opcoesIniciais();
 			switch (opcaoInicial) {
 			case 1:
-				conta.setTitularDaConta(conta.gerarDadosDaConta(null));// verificar dentro do gerar se dados não está
-																		// vazio
+				conta.setTitularDaConta(conta.gerarDadosDaConta(null));// verificar dentro do gerar se dados não está vazio
+				qualConta = conta.qualConta();
 				break;
 			}
 			do {
 				opcao = conta.opcaoesPrincipais();
 				switch (opcao) {
 				case 1:// saldo
-					conta.gerarSaldo();
-					conta.setSaldo();
+					conta.setSaldo(conta.gerarSaldo(qualConta));
 					infoConta.exibirSaldoCompleto(conta.getSaldo());
 					break;
-				case 2:// saque
-					conta.sacar();
+				case 2:// saque					
+					conta.sacar(qualConta);
 					break;
 				case 3:// deposito
-					conta.depositar();
+					conta.depositar(qualConta);
 					break;
 				case 4:// extratos
 					int opcoesExtratos = conta.opcoesExtratos();
@@ -40,7 +40,7 @@ public class controladora {
 						switch (opcoesExtratos) {
 						case 1:// extratos de saques
 							conta.gerarExtratoSaques();
-							infoConta.exibirExtradoDeSaques();
+							infoConta.exibirExtratoDeSaques();
 							break;
 						case 2:// extrato de depositos
 							conta.gerarExtratoDepositos();

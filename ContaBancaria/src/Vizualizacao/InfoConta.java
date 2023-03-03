@@ -1,16 +1,21 @@
 package Vizualizacao;
 
+import javax.swing.JOptionPane;
+
 import EntradaSaida.*;
 
 public class InfoConta {
 	
 	Conta conta = new Conta();
 
-	public void exibirExtradoDeSaques() {
+	public void exibirExtratoDeSaques() {
 		
 	}
-	public void exibirExtratoDeDepositos() {
-		
+	public void exibirExtratoDeDepositos() {	
+		conta.getListaDeMovimentacao();
+	
+	
+	
 	}
 	public void exibirExtratoCompleto() {
 		
@@ -19,11 +24,11 @@ public class InfoConta {
 		
 	}
 	public void exibirSaldoCompleto(int saldo) {
-		
+		JOptionPane.showConfirmDialog(null, saldo,"Esse é o saldo da sua conta",JOptionPane.OK_CANCEL_OPTION);
 	}
 	public void solicitarInformacoesSaque() {
 		
 	}
-
+	
 
 }
