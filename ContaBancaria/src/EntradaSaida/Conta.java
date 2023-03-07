@@ -1,19 +1,18 @@
 package EntradaSaida;
 
 import java.util.ArrayList;
-
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class Conta {
-	Movimentacao movi = new Movimentacao();
-	Conta conta = new Conta();
 
-	private String[] titularDaConta;
+	private Movimentacao movi = new Movimentacao();
+
+	private String[] titularDaConta = new String[3];
 
 	private int saldoContaPop;
 
-	private int sladoContaCore;
+	private int saldoContaCore;
 
 	private int saldo;
 
@@ -35,20 +34,21 @@ public class Conta {
 		this.titularDaConta = titularDaConta;
 	}
 
+	
 	public int getSaldoContaPop() {
 		return saldoContaPop;
 	}
 
-	public void setSaldoContaPop(int saldoDaContaPop) {
+	public void setSaldoContaPop(int saldoContaPop) {
 		this.saldoContaPop = saldoContaPop;
 	}
 
 	public int getSaldoContaCore() {
-		return sladoContaCore;
+		return saldoContaCore;
 	}
 
-	public void setSaldoContaCore(int saldoDaContaCore) {
-		this.sladoContaCore = sladoContaCore;
+	public void setSaldoContaCore(int saldoContaCore) {
+		this.saldoContaCore = saldoContaCore;
 	}
 
 	public int getSaldo() {
@@ -66,18 +66,18 @@ public class Conta {
 		case 1:// poupança
 			deposito = Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o valor do depósito ?"));
 			movi.setDeposito(deposito);
-//			movi.setConta(qualConta);
+			movi.getData();
 			listaDeMovimentacao.add(movi);
-			somaSaldo = conta.getSaldoContaPop();
-			somaSaldo += somaSaldo;
+			somaSaldo = getSaldoContaPop();
+			somaSaldo = deposito + somaSaldo;
 			setSaldoContaPop(somaSaldo);
 			break;
 		case 2:// corrente
 			deposito = Integer.parseInt(JOptionPane.showInputDialog(null, "Qual o valor do depósito ?"));
 			movi.setDeposito(deposito);
-//			movi.setConta(qualConta);
+			movi.getData();
 			listaDeMovimentacao.add(movi);
-			somaSaldo = conta.getSaldoContaCore();
+			somaSaldo = getSaldoContaCore();
 			somaSaldo += somaSaldo;
 			setSaldoContaCore(somaSaldo);
 			break;
@@ -91,19 +91,19 @@ public class Conta {
 		case 1:// poupança
 			saque = Integer.parseInt(JOptionPane.showInputDialog(null, "Quanto deseja sacar ?"));
 			movi.setSaque(saque);
-//			movi.setConta(qualConta);
+			movi.getData();
 			listaDeMovimentacao.add(movi);
-			menosSaldo = conta.getSaldoContaPop();
-			menosSaldo -= menosSaldo;
+			menosSaldo = getSaldoContaPop();
+			menosSaldo = menosSaldo - saque;
 			setSaldoContaPop(menosSaldo);
 			break;
 		case 2:// corrente
 			saque = Integer.parseInt(JOptionPane.showInputDialog(null, "Quanto deseja sacar ?"));
 			movi.setSaque(saque);
-//			movi.setConta(qualConta);
+			movi.getData();
 			listaDeMovimentacao.add(movi);
-			menosSaldo = conta.getSaldoContaCore();
-			menosSaldo -= menosSaldo;
+			menosSaldo = getSaldoContaCore();
+			menosSaldo = menosSaldo - saque;
 			setSaldoContaCore(menosSaldo);
 			break;
 		}
@@ -114,20 +114,21 @@ public class Conta {
 		int saldo = 0;
 		switch (qualConta) {
 		case 1:// poupanca
-			saldo = conta.getSaldoContaPop();
+			saldo = getSaldoContaPop();
 			break;
 		case 2:// corrente
-			saldo = conta.getSaldoContaCore();
+			saldo = getSaldoContaCore();
 			break;
 		}
 		return saldo;
 	}
 
-	public String[] gerarDadosDaConta(String[] dados) {
-		dados[1] = JOptionPane.showInputDialog(null, "Insira seu nome completo");
-		dados[2] = JOptionPane.showInputDialog(null, "Insira seu CPF. Sem traços e ponto");
-		dados[3] = JOptionPane.showInputDialog(null, "Insira a data de hoje confrome o modelo DD/MM");
-		movi.setData(dados[3]);
+	public String[] gerarDadosDaConta() {
+		String[] dados = new String[3];
+		dados[0] = JOptionPane.showInputDialog(null, "Insira seu nome completo");
+		dados[1] = JOptionPane.showInputDialog(null, "Insira seu CPF. Sem traços e ponto");
+		dados[2] = JOptionPane.showInputDialog(null, "Insira a data de hoje confrome o modelo DD/MM");
+		movi.setData(dados[2]);
 		return dados;
 	}
 
@@ -136,25 +137,18 @@ public class Conta {
 		return zero;
 	}
 
-	public String gerarExtrato() {
+	public  void gerarExtrato() {
+			setListaDeMovimentacao(listaDeMovimentacao);
+		}
 
-	}
+		
+	
 
 	public void gerarExtratoDepositos() {
-		int size = listaDeMovimentacao.size();
-		movi = listaDeMovimentacao.get(0);
-		for (int i = 0; i < size; i++) {
-		
-		
-		
-		}
-		
-		
-		
-		
+	
 	}
 
-	public String gerarExtratoSaques() {
+	public void gerarExtratoSaques() {
 
 	}
 

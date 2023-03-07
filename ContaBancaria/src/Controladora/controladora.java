@@ -1,66 +1,67 @@
 package Controladora;
 
-import EntradaSaida.*;
+import EntradaSaida.Conta;
 import Vizualizacao.*;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 public class controladora {
+	Conta conta = new Conta();
+	InfoConta infoConta = new InfoConta();
 
 	public void exibeMenu() {
-		Conta conta = new Conta();
-		InfoConta infoConta = new InfoConta();
 		int opcao = 0;
 		int opcaoInicial = 0;
 		int qualConta = 0;
-		do {
+		do { ///// alerta ////
+			///// setTitularDaConta Ñ funciona/////
 			opcaoInicial = conta.opcoesIniciais();
 			switch (opcaoInicial) {
-			case 1:
-				conta.setTitularDaConta(conta.gerarDadosDaConta(null));// verificar dentro do gerar se dados não está vazio
+			case 0:
+				conta.setTitularDaConta(conta.gerarDadosDaConta());// verificar dentro do gerar se dados não está													// vazio
 				qualConta = conta.qualConta();
 				break;
 			}
-			do {
+			do {							
 				opcao = conta.opcaoesPrincipais();
 				switch (opcao) {
-				case 1:// saldo
+				case 0:// saldo
 					conta.setSaldo(conta.gerarSaldo(qualConta));
 					infoConta.exibirSaldoCompleto(conta.getSaldo());
 					break;
-				case 2:// saque					
+				case 1:// saque
 					conta.sacar(qualConta);
 					break;
-				case 3:// deposito
+				case 2:// deposito
 					conta.depositar(qualConta);
 					break;
-				case 4:// extratos
+				case 3:// extratos
 					int opcoesExtratos = conta.opcoesExtratos();
 					do {
 						switch (opcoesExtratos) {
-						case 1:// extratos de saques
+						case 0:// extratos de saques
 							conta.gerarExtratoSaques();
 							infoConta.exibirExtratoDeSaques();
 							break;
-						case 2:// extrato de depositos
+						case 1:// extrato de depositos
 							conta.gerarExtratoDepositos();
 							infoConta.exibirExtratoDeDepositos();
 							break;
-						case 3:// extrato completo
-							conta.gerarExtrato();
+						case 2:// extrato completo
 							infoConta.exibirExtratoCompleto();
 							break;
 						}
 					} while (opcoesExtratos != 4);
 					break;
-				case 5:// informações da conta
+				case 4:// informações da conta
+					infoConta.exibirDadosDaConta();
 					break;
-				case 6:// sair da conta
+				case 5:// sair da conta
 					conta.setTitularDaConta(conta.zerandoConta());
 					opcao = 7;
 					break;
 				}
-			} while (opcao != 7);
+			} while (opcao != 6);
 		} while (opcaoInicial != 2);
 	}
 

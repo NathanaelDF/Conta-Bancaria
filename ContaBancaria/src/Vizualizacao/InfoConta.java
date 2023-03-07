@@ -14,14 +14,26 @@ public class InfoConta {
 	public void exibirExtratoDeDepositos() {	
 		conta.getListaDeMovimentacao();
 	
-	
-	
 	}
+	
+	
 	public void exibirExtratoCompleto() {
-		
+		conta.gerarExtrato();
+		conta.getListaDeMovimentacao();
+		JOptionPane.showConfirmDialog(null,conta,"EXTRATO COMPLETO",JOptionPane.OK_CANCEL_OPTION);
 	}
-	public void exibirDadosDaConta() {
-		
+	
+	
+	
+	public void exibirDadosDaConta() {	
+		String [] dadosConta = conta.getTitularDaConta();
+		String exibir = "Nome : ";
+			exibir += dadosConta[0];
+			exibir +="\n CPF: ";
+			exibir += dadosConta[1];
+			exibir +="\n Data de criação da conta: ";
+			exibir += dadosConta[2];
+			JOptionPane.showConfirmDialog(null, exibir,"DADOS DA CONTA",JOptionPane.OK_CANCEL_OPTION);
 	}
 	public void exibirSaldoCompleto(int saldo) {
 		JOptionPane.showConfirmDialog(null, saldo,"Esse é o saldo da sua conta",JOptionPane.OK_CANCEL_OPTION);
